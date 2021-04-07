@@ -29,7 +29,7 @@ namespace DemoApp
         }
         int colIndex, rowIndex;
         
-        //To populate dummy data
+        //To populate dummy data.
         DataTable loadData()
         {
             DataTable dt = new DataTable();
