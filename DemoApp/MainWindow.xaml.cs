@@ -28,7 +28,9 @@ namespace DemoApp
             dataGridView.DataContext = loadData();
         }
         int colIndex, rowIndex;
-       DataTable loadData()
+        
+        //To populate dummy data
+        DataTable loadData()
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Name");
@@ -41,7 +43,7 @@ namespace DemoApp
             return dt;
         }
     
-
+        //Getting row and column index by using MousePreviewDown Event
         private void GetRowandColumnIndex(object sender, RoutedEventArgs e)
         {
             DataGridCell x = (DataGridCell)sender;
@@ -51,6 +53,7 @@ namespace DemoApp
             txtRow.Text = rowIndex.ToString();
         }
 
+        //The method you required in proposal
         string RequiredMethod()
         {
             colIndex = Convert.ToInt32(txtColumn.Text);
@@ -62,11 +65,11 @@ namespace DemoApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           
             MessageBox.Show(RequiredMethod());
         }
 
-         public  DataTable ConverttoTable()
+        //Converting DataGrid to Table
+        public  DataTable ConverttoTable()
         {
             DataView view = (DataView)dataGridView.ItemsSource;
             DataTable dataTable = view.Table.Clone();
