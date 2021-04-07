@@ -9,11 +9,22 @@
     <Grid>
 
         <DataGrid IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" x:Name="dataGridView" Margin="0,75,0,0" FontSize="14" FontFamily="Segoe UI Light">
-        <DataGrid.Columns>
-            <DataGridTextColumn Binding="{Binding Name}" Header="Name, Made Name" Width="*"/>
-            <DataGridTextColumn Binding="{Binding Power}" Width="*" Header="Power Rank"/>
-            <DataGridTextColumn Binding="{Binding Address}" Width="*" Header="Address"/>
-        </DataGrid.Columns>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name, Made Name" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Power}" Width="*" Header="Power Rank"/>
+                <DataGridTextColumn Binding="{Binding Address}" Width="*" Header="Address"/>
+            </DataGrid.Columns>
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <EventSetter Event="PreviewMouseDown" Handler="GetRowandColumnIndex"/>
+                </Style>
+            </DataGrid.CellStyle>
         </DataGrid>
+        <TextBox x:Name="txtColumn" HorizontalAlignment="Left" Margin="65,40,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="42"/>
+        <TextBox x:Name="txtRow" HorizontalAlignment="Left" Margin="150,40,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="38"/>
+        <Label Content="Row" HorizontalAlignment="Left" Margin="112,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.671,-0.133"/>
+        <Label Content="Column" HorizontalAlignment="Left" Margin="9,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.671,-0.133"/>
+        <Button Content="Get Cell Value" HorizontalAlignment="Left" Margin="647,39,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click"/>
+        <Label Content="Click any cell to select the Indexes of Row and Column or type in Textboxes then hit Get Cell Value" HorizontalAlignment="Left" Margin="6,3,0,0" VerticalAlignment="Top" FontSize="15" FontFamily="Segoe UI Light"/>
     </Grid>
 </Window>
