@@ -26,6 +26,8 @@ namespace DemoApp
         {
             InitializeComponent();
             dataGridView.DataContext = loadData();
+            txtColumn.Text = "0";
+            txtRow.Text = "0";
         }
         int colIndex, rowIndex;
         
